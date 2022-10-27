@@ -1,0 +1,31 @@
+<div>
+  <div class="py-10 text-center">
+    <h1 class="text-4xl font-bold">Contact App</h1>
+    <form (ngSubmit)="onClick()" class="mt-4 flex gap-2 justify-center">
+      <input
+        type="text"
+        name="text"
+        placeholder="Name"
+        [(ngModel)]="text"
+        class="p-2 border-2 border-gray-600"
+      />
+      <button type="submit" class="p-2 border-2 border-gray-600">Add</button>
+    </form>
+  </div>
+  <div class="w-full max-w-3xl m-auto">
+    <p class="font-bold">Contact List:</p>
+    <div>
+      <div *ngFor="let contact of contacts" class="flex gap-4">
+        <p>{{ contact.text }}</p>
+        <div class="flex gap-1">
+          <button class="text-blue-600" (click)="onEdit(contact.id)">
+            edit
+          </button>
+          <button class="text-red-600" (click)="onDelete(contact.id)">
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
